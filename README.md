@@ -14,15 +14,27 @@ A full-stack web application that helps community members find healthcare resour
 
 ## Project Structure
 
-```
 community-health-app/
-├── frontend/          # React + TypeScript app
-├── backend/           # Django REST API
-└── docs/              # Architecture diagrams, API docs
-```
-
----
-
+├── README.md
+├── .gitignore
+├── backend/
+│   ├── core/          → settings, urls, wsgi
+│   ├── users/         → custom User model, JWT auth, register/me endpoints
+│   ├── appointments/  → booking, cancelling, status tracking
+│   ├── resources/     → HealthResource model, search/filter
+│   ├── manage.py
+│   ├── requirements.txt
+│   └── .env.example
+└── frontend/
+    ├── src/
+    │   ├── App.tsx            → routing
+    │   ├── hooks/             → useAuth, useAppointments, useResources
+    │   ├── components/        → Navbar, ResourceCard, AppointmentCard, ProtectedRoute
+    │   ├── pages/             → Home, Login, Register, Resources, ResourceDetail, Appointments, Profile
+    │   └── utils/             → api.ts (axios + JWT), types.ts
+    ├── tailwind.config.js
+    ├── vite.config.ts
+    └── package.json
 ## Getting Started
 
 ### Prerequisites
